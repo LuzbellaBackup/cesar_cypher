@@ -13,5 +13,13 @@ describe Cypher do
       wrap = Cypher.new
       expect(wrap.wrapper(66, 91, 65, 1).eql?(65))
     end
+    it 'positive overflow of range' do
+      wrap = Cypher.new
+      expect(wrap.wrapper(65, 91, 91, 1).eql?(65))
+    end
+    it 'negative overflow of range' do
+      wrap = Cypher.new
+      expect(wrap.wrapper(65, 91, 65, -1).eql?(91))
+    end
   end
 end
