@@ -36,4 +36,10 @@ describe Cypher do
       expect(cypher.shifter('a', 1)).to eql('b')
     end
   end
+  describe '#encoder' do
+    it "#transcript text by 'n' integers" do
+      cypher = Cypher.new
+      expect(cypher.encoder('What a string!', 5)).to eql('Bmfy f xywnsl!')
+    end
+  end
 end
