@@ -4,7 +4,7 @@ require 'pry-byebug'
 
 # Cypher
 class Cypher
-  # wrap the number
+  # wrap the number around the ASCCII range
   def wrapper(range1, range2, num1, shift)
     num = num1 + shift
     range = range2 - range1
@@ -12,7 +12,7 @@ class Cypher
     total.chr
   end
 
-  # wrap the number
+  # shift letter by +- number
   def shifter(letter, number)
     num1 = letter.ord
     if (65..90).cover?(num1)
@@ -24,7 +24,7 @@ class Cypher
     end
   end
 
-  # wrap the number
+  # Iterate over the string per each letter
   def encoder(string, num)
     string.split('').map do |item|
       shifter(item, num)
@@ -32,4 +32,4 @@ class Cypher
   end
 end
 
-p encoder('What a string!', 5)
+Cypher.new.encoder('What a string!', 5)
